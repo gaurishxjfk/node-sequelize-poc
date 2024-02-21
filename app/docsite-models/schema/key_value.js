@@ -45,7 +45,8 @@ module.exports = function(sequelize, DataTypes) {
       timestamps     : true,
       createdAt      : "created_at", // imp as per rails convention must set in each model defination
       updatedAt      : "updated_at", // imp as per rails convention must set in each model defination
-      classMethods   : methods.classMethods
+      classMethods   : methods.classMethods,
+      hooks          : methods.hooks
     }
   )
   return KeyValue_records

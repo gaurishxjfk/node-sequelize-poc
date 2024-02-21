@@ -14,4 +14,24 @@ async function getTotalVisitorsToday(req, res) {
   }
 }
 
+async function insertValueat(req, res) {
+
+  try {
+    const newEntry = await KeyValue.create({
+      id: req.body.id,
+      name: req.body.name,
+      value: req.body.value,
+      created_at: new Date(),
+      updated_at: new Date(),
+    });
+    console.log(`New user added with ID ${newEntry.id}`);
+    return res.json(newEntry);
+  } catch (error) {
+    console.log(error);
+
+    return utils.reject(error);
+  }
+}
+
 exports.getTotalVisitorsToday = getTotalVisitorsToday;
+exports.insertValueat = insertValueat;
